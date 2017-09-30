@@ -1,11 +1,11 @@
 # MDB Socials
 
-This is an app where members of MDB can share events and images related to those events, as well as RSVP if they are coming.
+An app where members of Mobile Developers of Berkeley can share events to the group. Built with Swift and Firebase.
 
 Features included:
 
 * Posting new events/socials
-* RSVPing to events
-* Adding images to an event
+* Viewing and RSVPing to existing events
+* Adding an image to an event
 * Logging in and signing up for an account
 
