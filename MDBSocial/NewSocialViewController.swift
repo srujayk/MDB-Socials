@@ -18,15 +18,15 @@ class NewSocialViewController: UIViewController, UIImagePickerControllerDelegate
     var imageView: UIImageView!
     var imageURL: String!
     var host: User!
-    var createSocialButton: UIButton!
-    var cancelButton: UIButton!
+    var createSocialButton: ColorButton!
+    var cancelButton: ColorButton!
     var database: FIRDatabaseReference = FIRDatabase.database().reference()
     var storage: FIRStorageReference = FIRStorage.storage().reference()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red:0.45, green:0.74, blue:0.95, alpha:1.0)
+        view.backgroundColor = Constants.mdb_blue
         imagePicker.delegate = self
 
         setupTextFields()
@@ -41,7 +41,7 @@ class NewSocialViewController: UIViewController, UIImagePickerControllerDelegate
         eventName.layer.borderColor = UIColor.lightGray.cgColor
         eventName.layer.borderWidth = 1.0
         eventName.backgroundColor = .white
-        eventName.layer.cornerRadius = 3.0
+        eventName.layer.cornerRadius = Constants.corner_radius
         eventName.layer.masksToBounds = true
         eventName.textColor = UIColor.black
         view.addSubview(eventName)
@@ -53,7 +53,7 @@ class NewSocialViewController: UIViewController, UIImagePickerControllerDelegate
         eventDate.layer.borderColor = UIColor.lightGray.cgColor
         eventDate.layer.borderWidth = 1.0
         eventDate.backgroundColor = .white
-        eventDate.layer.cornerRadius = 3.0
+        eventDate.layer.cornerRadius = Constants.corner_radius
         eventDate.layer.masksToBounds = true
         eventDate.textColor = UIColor.black
         view.addSubview(eventDate)
@@ -66,7 +66,7 @@ class NewSocialViewController: UIViewController, UIImagePickerControllerDelegate
         eventDesc.layer.borderColor = UIColor.lightGray.cgColor
         eventDesc.layer.borderWidth = 1.0
         eventDesc.backgroundColor = .white
-        eventDesc.layer.cornerRadius = 3.0
+        eventDesc.layer.cornerRadius = Constants.corner_radius
         eventDesc.layer.masksToBounds = true
         eventDesc.textColor = UIColor.black
         view.addSubview(eventDesc)
@@ -78,7 +78,7 @@ class NewSocialViewController: UIViewController, UIImagePickerControllerDelegate
         imageButton = UIButton(frame: imageView.frame)
         imageButton.setTitle("Pick Image", for: .normal)
         imageButton.setTitleColor(UIColor.blue, for: .normal)
-        imageButton.layer.cornerRadius = 3.0
+        imageButton.layer.cornerRadius = Constants.corner_radius
         imageButton.backgroundColor = .white
         imageButton.setTitleColor(.black, for: .normal)
         imageButton.addTarget(self, action: #selector(loadImageButtonTapped), for: .touchUpInside)
@@ -110,25 +110,16 @@ class NewSocialViewController: UIViewController, UIImagePickerControllerDelegate
     
     func setupButtons() {
         
-        createSocialButton = UIButton(frame: CGRect(x: view.frame.width * 0.3, y: view.frame.height * 0.65, width: view.frame.width * 0.4, height: 50))
+        createSocialButton = ColorButton(frame: CGRect(x: view.frame.width * 0.3, y: view.frame.height * 0.65, width: view.frame.width * 0.4, height: 50))
         createSocialButton.setTitle("Add Social", for: .normal)
-        createSocialButton.setTitleColor(UIColor.blue, for: .normal)
         createSocialButton.layoutIfNeeded()
-        createSocialButton.backgroundColor = UIColor(red:0.98, green:0.86, blue:0.36, alpha:1.0)
-        createSocialButton.setTitleColor(.white, for: .normal)
-        createSocialButton.layer.cornerRadius = 3.0
-        createSocialButton.layer.masksToBounds = true
+        createSocialButton.setup()
         createSocialButton.addTarget(self, action: #selector(createSocial), for: .touchUpInside)
         view.addSubview(createSocialButton)
         
-        cancelButton = UIButton(frame: CGRect(x: view.frame.width * 0.3, y: view.frame.height * 0.75, width: view.frame.width * 0.4, height: 50))
+        cancelButton = ColorButton(frame: CGRect(x: view.frame.width * 0.3, y: view.frame.height * 0.75, width: view.frame.width * 0.4, height: 50))
         cancelButton.setTitle("<- Back", for: .normal)
-        cancelButton.setTitleColor(UIColor.blue, for: .normal)
-        cancelButton.layoutIfNeeded()
-        cancelButton.backgroundColor = UIColor(red:0.98, green:0.86, blue:0.36, alpha:1.0)
-        cancelButton.setTitleColor(.white, for: .normal)
-        cancelButton.layer.cornerRadius = 3.0
-        cancelButton.layer.masksToBounds = true
+        cancelButton.setup()
         cancelButton.addTarget(self, action: #selector(cancelEntry), for: .touchUpInside)
         view.addSubview(cancelButton)
     }

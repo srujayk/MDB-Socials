@@ -19,15 +19,15 @@ class DetailViewController: UIViewController {
     var hostName: UILabel!
     var eventImage: UIImageView!
     var eventDesc: UILabel!
-    var interested: UIButton!
+    var interested: ColorButton!
     var numInterested: UILabel!
-    var goBackButton: UIButton!
+    var goBackButton: ColorButton!
 
     var numGoing: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red:0.45, green:0.74, blue:0.95, alpha:1.0)
+        view.backgroundColor = Constants.mdb_blue
         setupSocialDetails()
     }
     
@@ -59,14 +59,9 @@ class DetailViewController: UIViewController {
         eventDesc.textAlignment = .center
         view.addSubview(eventDesc)
 
-        interested = UIButton(frame: CGRect(x: 10, y: view.frame.height * 0.8, width: view.frame.width * 0.3 - 20, height: 30))
-        interested.layoutIfNeeded()
+        interested = ColorButton(frame: CGRect(x: 10, y: view.frame.height * 0.8, width: view.frame.width * 0.3 - 20, height: 30))
         interested.setTitle("Interested?", for: .normal)
-        interested.setTitleColor(UIColor.blue, for: .normal)
-        interested.layer.cornerRadius = 3.0
-        interested.backgroundColor = UIColor(red:0.98, green:0.86, blue:0.36, alpha:1.0)
-        interested.setTitleColor(.white, for: .normal)
-        interested.layer.masksToBounds = true
+        interested.setup()
         interested.addTarget(self, action: #selector(interest), for: .touchUpInside)
         self.view.addSubview(interested)
         
@@ -75,26 +70,24 @@ class DetailViewController: UIViewController {
         numInterested.textAlignment = .center
         view.addSubview(numInterested)
         
-        goBackButton = UIButton(frame: CGRect(x: 10, y: 20, width: view.frame.width * 0.1, height: view.frame.width * 0.1))
-        goBackButton.layoutIfNeeded()
+        goBackButton = ColorButton(frame: CGRect(x: 10, y: 20, width: view.frame.width * 0.1, height: view.frame.width * 0.1))
         goBackButton.setTitle("<-", for: .normal)
-        goBackButton.setTitleColor(UIColor.blue, for: .normal)
-        goBackButton.layer.cornerRadius = 3.0
-        goBackButton.backgroundColor = UIColor(red:0.98, green:0.86, blue:0.36, alpha:1.0)
-        goBackButton.setTitleColor(.white, for: .normal)
-        goBackButton.layer.masksToBounds = true
         goBackButton.addTarget(self, action: #selector(goBackButtonClicked), for: .touchUpInside)
+        goBackButton.setup()
         self.view.addSubview(goBackButton)
     }
     
     func interest() {
         numGoing = numGoing + 1
         numInterested.text = String(describing: numGoing) + " people are interested."
+        interested.isEnabled = false
     }
     
     func downloadImg() {
         social.getImage(withBlock: { profileImage in
-            self.eventImage.image = (profileImage)
+            DispatchQueue.main.async {
+                self.eventImage.image = (profileImage)
+            }
         })
     }
     

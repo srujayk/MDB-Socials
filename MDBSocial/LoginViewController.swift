@@ -14,12 +14,12 @@ class LoginViewController: UIViewController {
     var appTitle: UILabel!
     var emailTextField: UITextField!
     var passwordTextField: UITextField!
-    var loginButton: UIButton!
-    var signupButton: UIButton!
+    var loginButton: ColorButton!
+    var signupButton: ColorButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red:0.45, green:0.74, blue:0.95, alpha:1.0)
+        view.backgroundColor = Constants.mdb_blue
         setupTitle()
         setupTextFields()
         setupButtons()
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
         emailTextField.adjustsFontSizeToFitWidth = true
         emailTextField.placeholder = "  Email"
         emailTextField.backgroundColor = .white
-        emailTextField.layer.cornerRadius = 3.0
+        emailTextField.layer.cornerRadius = Constants.corner_radius
         emailTextField.layoutIfNeeded()
         emailTextField.layer.borderColor = UIColor.lightGray.cgColor
         emailTextField.layer.borderWidth = 1.0
@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
         passwordTextField.adjustsFontSizeToFitWidth = true
         passwordTextField.placeholder = "  Password"
         passwordTextField.backgroundColor = .white
-        passwordTextField.layer.cornerRadius = 3.0
+        passwordTextField.layer.cornerRadius = Constants.corner_radius
         passwordTextField.layer.borderColor = UIColor.lightGray.cgColor
         passwordTextField.layer.borderWidth = 1.0
         passwordTextField.layer.masksToBounds = true
@@ -67,31 +67,20 @@ class LoginViewController: UIViewController {
     }
     
     func setupButtons() {
-        loginButton = UIButton(frame: CGRect(x: view.frame.width * 0.3, y: view.frame.height * 0.65, width: view.frame.width * 0.4, height: 50))
-        loginButton.layoutIfNeeded()
+        loginButton = ColorButton(frame: CGRect(x: view.frame.width * 0.3, y: view.frame.height * 0.65, width: view.frame.width * 0.4, height: 50))
         loginButton.setTitle("Log In", for: .normal)
-        loginButton.setTitleColor(UIColor.blue, for: .normal)
-        loginButton.layer.cornerRadius = 3.0
-        loginButton.backgroundColor = UIColor(red:0.98, green:0.86, blue:0.36, alpha:1.0)
-        loginButton.setTitleColor(.white, for: .normal)
-        loginButton.layer.masksToBounds = true
+        loginButton.setup()
         loginButton.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
         self.view.addSubview(loginButton)
 
-        signupButton = UIButton(frame: CGRect(x: view.frame.width * 0.3, y: view.frame.height * 0.75, width: view.frame.width * 0.4, height: 50))
-        signupButton.layoutIfNeeded()
+        signupButton = ColorButton(frame: CGRect(x: view.frame.width * 0.3, y: view.frame.height * 0.75, width: view.frame.width * 0.4, height: 50))
         signupButton.setTitle("Sign Up", for: .normal)
-        signupButton.setTitleColor(UIColor.blue, for: .normal)
-        signupButton.layer.cornerRadius = 3.0
-        signupButton.backgroundColor = UIColor(red:0.98, green:0.86, blue:0.36, alpha:1.0)
-        signupButton.setTitleColor(.white, for: .normal)
-        signupButton.layer.masksToBounds = true
+        signupButton.setup()
         signupButton.addTarget(self, action: #selector(signupButtonClicked), for: .touchUpInside)
         self.view.addSubview(signupButton)
     }
     
     func loginButtonClicked(sender: UIButton!) {
-        // FIRApp.configure()
         let email = emailTextField.text!
         //self.emailTextField.text = ""
         let password = passwordTextField.text!

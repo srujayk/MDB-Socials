@@ -11,6 +11,8 @@
 		91D9BEC1786FA324BD16BBA8 /* Pods_MDBSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5302E9F3E6A0845738CAB8 /* Pods_MDBSocial.framework */; };
 		D042E729B5064A0977F895FB /* Pods_MDBSocialTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C5B8F2E2B47C02087DC9AC4 /* Pods_MDBSocialTests.framework */; };
 		D41701201F7E14E400395C38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D417011F1F7E14E400395C38 /* GoogleService-Info.plist */; };
+		D48F6B141F8804C400AA0D45 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48F6B131F8804C400AA0D45 /* Constants.swift */; };
+		D48F6B161F88102A00AA0D45 /* MDBSocialsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48F6B151F88102A00AA0D45 /* MDBSocialsUtils.swift */; };
 		EF0016471E61A76F00B48533 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0016461E61A76F00B48533 /* User.swift */; };
 		EF0016491E61B5BE00B48533 /* NewSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0016481E61B5BE00B48533 /* NewSocialViewController.swift */; };
 		EF00164B1E61B9E800B48533 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF00164A1E61B9E800B48533 /* DetailViewController.swift */; };
@@ -53,6 +55,8 @@
 		A272850C6D04175A6ACD6625 /* Pods-MDBSocialUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBSocialUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MDBSocialUITests/Pods-MDBSocialUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BC6361608FFDB89C54DDDD57 /* Pods-MDBSocialUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBSocialUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MDBSocialUITests/Pods-MDBSocialUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D417011F1F7E14E400395C38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D48F6B131F8804C400AA0D45 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D48F6B151F88102A00AA0D45 /* MDBSocialsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDBSocialsUtils.swift; sourceTree = "<group>"; };
 		EC260E016480389A2E2CE317 /* Pods-MDBSocialTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBSocialTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MDBSocialTests/Pods-MDBSocialTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC77851E2A8C4922C93FED1C /* Pods-MDBSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MDBSocial/Pods-MDBSocial.debug.xcconfig"; sourceTree = "<group>"; };
 		EF0016461E61A76F00B48533 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				EF0016461E61A76F00B48533 /* User.swift */,
 				EF9A76811E5E93FE003425B1 /* Social.swift */,
 				EF9A767B1E5E88C3003425B1 /* SocialCollectionViewCell.swift */,
+				D48F6B131F8804C400AA0D45 /* Constants.swift */,
+				D48F6B151F88102A00AA0D45 /* MDBSocialsUtils.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -506,8 +512,10 @@
 				EF00164B1E61B9E800B48533 /* DetailViewController.swift in Sources */,
 				EF409A8D1E5D3CD900965A27 /* LoginViewController.swift in Sources */,
 				EF9A76821E5E93FE003425B1 /* Social.swift in Sources */,
+				D48F6B141F8804C400AA0D45 /* Constants.swift in Sources */,
 				EF9A767A1E5E8857003425B1 /* FeedViewController.swift in Sources */,
 				EF0016491E61B5BE00B48533 /* NewSocialViewController.swift in Sources */,
+				D48F6B161F88102A00AA0D45 /* MDBSocialsUtils.swift in Sources */,
 				EF409A8B1E5D3CD900965A27 /* AppDelegate.swift in Sources */,
 				EF0016471E61A76F00B48533 /* User.swift in Sources */,
 			);

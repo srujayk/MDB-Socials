@@ -48,7 +48,9 @@ class Social {
             if let error = error {
                 print(error)
             } else {
-                withBlock(UIImage(data: data!)!)
+                DispatchQueue.main.async {
+                    withBlock(UIImage(data: data!)!)
+                }
             }
         }
     }

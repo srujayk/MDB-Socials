@@ -18,8 +18,8 @@ class FeedViewController: UIViewController {
     var storage: FIRStorageReference = FIRStorage.storage().reference()
     var currentUser: User?
     var socialToPass: Social!
-    var logoutButton: UIButton!
-    var newSocialButton: UIButton!
+    var logoutButton: ColorButton!
+    var newSocialButton: ColorButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,25 +40,15 @@ class FeedViewController: UIViewController {
     
     func setupButtons() {
         
-        logoutButton = UIButton(frame: CGRect(x: 0.5 * view.frame.width + 90, y: 0.1 * view.frame.height, width: 0.25 * UIScreen.main.bounds.width - 10, height: 30))
-        logoutButton.layoutIfNeeded()
+        logoutButton = ColorButton(frame: CGRect(x: 0.5 * view.frame.width + 90, y: 0.1 * view.frame.height, width: 0.25 * UIScreen.main.bounds.width - 10, height: 30))
         logoutButton.setTitle("Log Out", for: .normal)
-        logoutButton.setTitleColor(UIColor.blue, for: .normal)
-        logoutButton.layer.cornerRadius = 3.0
-        logoutButton.backgroundColor = UIColor(red:0.98, green:0.86, blue:0.36, alpha:1.0)
-        logoutButton.setTitleColor(.white, for: .normal)
-        logoutButton.layer.masksToBounds = true
+        logoutButton.setup()
         logoutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
         self.view.addSubview(logoutButton)
         
-        newSocialButton = UIButton(frame: CGRect(x: 0.5 * view.frame.width + 80, y: 0.05 * view.frame.height, width: 0.25 * view.frame.width, height: 30))
-        newSocialButton.layoutIfNeeded()
+        newSocialButton = ColorButton(frame: CGRect(x: 0.5 * view.frame.width + 80, y: 0.05 * view.frame.height, width: 0.25 * view.frame.width, height: 30))
         newSocialButton.setTitle("New Social", for: .normal)
-        newSocialButton.setTitleColor(UIColor.blue, for: .normal)
-        newSocialButton.layer.cornerRadius = 3.0
-        newSocialButton.backgroundColor = UIColor(red:0.98, green:0.86, blue:0.36, alpha:1.0)
-        newSocialButton.setTitleColor(.white, for: .normal)
-        newSocialButton.layer.masksToBounds = true
+        newSocialButton.setup()
         newSocialButton.addTarget(self, action: #selector(newPost), for: .touchUpInside)
         self.view.addSubview(newSocialButton)
     }
